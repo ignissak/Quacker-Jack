@@ -1,9 +1,9 @@
 {
   "TOKEN": "YOUR_SUPER_SECRET_TOKEN",
   "PREFIX": ">",
-  "VERSION": "pre-release 0.1",
-  "SOURCECODE": "Wait few weeks.",
-  "INVITE": "Wait for beta version.",
+  "VERSION": "beta 1.0",
+  "SOURCECODE": "https://github.com/ignissak/Quacker-Jack/tree/master",
+  "INVITE": "https://discordapp.com/oauth2/authorize?client_id=376500571852767232&scope=bot&permissions=104197334",
   "ownerID": "234700305831428106",
 
   "SHRUG": "¯\\_(ツ)_/¯",
