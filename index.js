@@ -1,6 +1,6 @@
 // Const, main vars, bot.login
-const Discord = require ('discord.js');
-const config = require('./config.json');
+const Discord = require ("discord.js");
+const config = require("./config.json");
 var bot = new Discord.Client();
 
 
@@ -22,17 +22,15 @@ var fact = [
   "In 1986, Ronald Reagan vetoed an anti-apartheid legislation enacted by the U.S. congress to impose sanctions against South Africa and stop apartheid.",
   "Migrating to another country increases the amount of dopamine in the brain, putting immigrants at higher risk for developing schizophrenia.",
   "In a study, people from Ohio cursed the most, as compared to every other state in the U.S.",
-  "Mississippi elected the first African American to serve in the U.S. Congress already in 1870."
-]
+  "Mississippi elected the first African American to serve in the U.S. Congress already in 1870." ]
 
 var ball = [
   "Yes",
   "No",
-  "Quack, what did you say?"
-]
+  "Quack, what did you say?" ]
 
 // On ready
-bot.on('ready', () => {
+bot.on("ready", () => {
   console.log("[X] Quacker said quack!");
   bot.user.setGame(config.VERSION + " | >help");
 });
