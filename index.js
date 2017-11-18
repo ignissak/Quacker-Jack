@@ -58,13 +58,13 @@ bot.on("message", function(message) {
       message.channel.sendEmbed(about);
       break;
     case "say":
-      if(message.author.id !== config.ownerID) return message.channel.sendMessage("Bot is still not in beta version, you can't use commands in development.");
-      if(args[1])
+      if (message.author.id !== config.ownerID) return message.channel.sendMessage("Bot is still not in beta version, you can't use commands in development.");
+      if (args[1])
         message.delete();
         message.channel.sendMessage(args.slice(1).join(" "))
       break;
     case "pool":
-      if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("You don't have enough permissions to do that.");
+      if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("You don't have enough permissions to do that.");
       if (args[1])
         var pool = new Discord.RichEmbed()
           .setTitle("Community pool")
