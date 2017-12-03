@@ -1,6 +1,6 @@
 // Const, main vars, bot.login
-const Discord = require ("discord.js");
-const config = require("./config.json");
+const Discord = require ('discord.js');
+const config = require('./config.json');
 var bot = new Discord.Client();
 
 
@@ -22,17 +22,20 @@ var fact = [
   "In 1986, Ronald Reagan vetoed an anti-apartheid legislation enacted by the U.S. congress to impose sanctions against South Africa and stop apartheid.",
   "Migrating to another country increases the amount of dopamine in the brain, putting immigrants at higher risk for developing schizophrenia.",
   "In a study, people from Ohio cursed the most, as compared to every other state in the U.S.",
-  "Mississippi elected the first African American to serve in the U.S. Congress already in 1870." ]
+  "Mississippi elected the first African American to serve in the U.S. Congress already in 1870."
+]
 
 var ball = [
   "Yes",
   "No",
-  "Quack, what did you say?" ]
+  "Quack, what did you say?"
+]
 
 // On ready
-bot.on("ready", () => {
+bot.on('ready', () => {
   console.log("[X] Quacker said quack!");
   bot.user.setGame(config.VERSION + " | >help");
+  bot.user.setStatus("dnb");
 });
 
 // commands
@@ -57,21 +60,96 @@ bot.on("message", function(message) {
         .setColor(0x00AE86)
       message.channel.sendEmbed(about);
       break;
+    case "server":
+      const rolesList = message.guild.roles.map(e=>e.toString()).join(" - ");
+      var server = new Discord.RichEmbed()
+        .setTitle("📑 About this server")
+        .addField("Name: ", message.guild.name, true)
+        .addField("Owner: ", message.guild.owner.user.tag, true)
+        .addField("Total users: ", message.guild.memberCount, true)
+        .addField("ID: ", message.guild.id, true)
+        .addField("Region: ", message.guild.region, true)
+        .addField("All roles:", rolesList, true)
+        .addField("Date of creation: ",  message.guild.createdAt, true)
+        .setThumbnail(message.guild.iconURL)
+        .setFooter(message.author.username, message.author.avatarURL)
+        .setColor(0x00AE86)
+      message.channel.sendEmbed(server);
+      break;
+      case "guide":
+        if (!args[1]) {
+          var guide = new Discord.RichEmbed()
+            .setTitle("🔖 Guide")
+            .setDescription("Please define what guide are you looking for.\n\n**>guide skript**\n**>guide tuskegui**\n**>guide functions**\n**>guide skelletproxy**\n**>guide other**")
+            .setFooter(message.author.username, message.author.avatarURL)
+            .setColor(0x00AE86)
+          message.channel.sendEmbed(guide);
+        }
+        if (args[1] == "skript" || args[1] == "sk") {
+          var guide = new Discord.RichEmbed()
+            .setTitle("🔖 Guide | Skript")
+            .setDescription("Let me see, I found something. The bold one is recommended.\n\n[**General Skript tutorial by LimeGlass**](https://forums.skunity.com/threads/general-skript-tutorial.5174/#post-19939)\n[Basic of Skript by LulKeith](https://www.spigotmc.org/threads/basics-of-skript-tutorial.168745/)\n[Skript tutorial by Peter Güttinger](http://en.njol.ch/projects/skript/tutorial)")
+            .setFooter(message.author.username, message.author.avatarURL)
+            .setColor(0x00AE86)
+          message.channel.sendEmbed(guide);
+        }
+        if (args[1] == "tuskegui" || args[1] == "guituske" || args[1] == "gui") {
+          var guide = new Discord.RichEmbed()
+            .setTitle("🔖 Guide | GUI from TuSKe")
+            .setDescription("Let me see, I found something. The bold one is recommended.\n\n[GitHub tutorial](https://github.com/Tuke-Nuke/TuSKe/wiki/GUI-Manager)\n[**SkUnity board tutorial**](https://forums.skunity.com/threads/gui-manager-tutorial.2349/)")
+            .setFooter(message.author.username, message.author.avatarURL)
+            .setColor(0x00AE86)
+          message.channel.sendEmbed(guide);
+        }
+        if (args[1] == "skelletproxy")  {
+          var guide = new Discord.RichEmbed()
+            .setTitle("🔖 Guide | SkelletProxy")
+            .setDescription("Let me see, I found something. The bold one is recommended.\n\n[**SkUnity board tutorial by YoshYz**](https://forums.skunity.com/threads/skellettproxy.3595/)")
+            .setFooter(message.author.username, message.author.avatarURL)
+            .setColor(0x00AE86)
+          message.channel.sendEmbed(guide);
+        }
+        if (args[1] == "functions")  {
+          var guide = new Discord.RichEmbed()
+            .setTitle("🔖 Guide | Functions")
+            .setDescription("Let me see, I found something. The bold one is recommended.\n\n[**SkUnity wiki page**](https://forums.skunity.com/wiki/functions/)")
+            .setFooter(message.author.username, message.author.avatarURL)
+            .setColor(0x00AE86)
+          message.channel.sendEmbed(guide);
+        }
+        if (args[1] == "other")  {
+          var guide = new Discord.RichEmbed()
+            .setTitle("🔖 Guide | Other")
+            .setDescription("Quack!\n\n[Arrow effects tutorial by winterwolf007](https://forums.skunity.com/threads/arrow-effects-tutorial.2418/)\n[YAML tutorial by TonyMaster21](https://forums.skunity.com/threads/reading-writing-and-deleting-yaml.33/)\n[Info about packets by Tlatoani](https://forums.skunity.com/threads/packets.320/)")
+            .setFooter(message.author.username, message.author.avatarURL)
+            .setColor(0x00AE86)
+          message.channel.sendEmbed(guide);
+        }
+
+        break;
+    case "download":
+      var download = new Discord.RichEmbed()
+        .setTitle("📑 Download Skript")
+        .addField("1.12+", "[Github releases (latest version)](https://github.com/bensku/skript/releases)\n[Recommended version](https://drive.google.com/file/d/0B8FRm4qNtysab3VNbzJIZXFiT3M/view)")
+        .addField("1.9-1.11", "[Recommended version](https://drive.google.com/file/d/0B8FRm4qNtysaU1NlUllQWHlTem8/view)")
+        .addField("1.8", "[Recommended version](https://drive.google.com/file/d/0B8FRm4qNtysaUlFZekxIY3UwZGc/view)")
+        .addField("1.7", "[Recommended version](https://drive.google.com/file/d/0B8FRm4qNtysaZXJVMVFDU1VCVnM/view)")
+      message.channel.sendEmbed(download);
     case "say":
-      if (message.author.id !== config.ownerID) return message.channel.sendMessage("Bot is still not in beta version, you can't use commands in development.");
-      if (args[1])
+      if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("You don't have enough permissions to do that.");
+      if(args[1])
         message.delete();
         message.channel.sendMessage(args.slice(1).join(" "))
       break;
-    case "pool":
-      if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("You don't have enough permissions to do that.");
+    case "poll":
+      if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("You don't have enough permissions to do that.");
       if (args[1])
         var pool = new Discord.RichEmbed()
-          .setTitle("Community pool")
+          .setTitle("Community poll")
           .setDescription(args.slice(1).join(" "))
           .setFooter(message.author.username, message.author.avatarURL)
           .setColor(0x00AE86)
-        message.channel.sendEmbed(pool).then(m => m.react('✅')).then(r => r.message.react('❌'))
+        message.channel.sendEmbed(pool).then(m => m.react('👍')).then(r => r.message.react('👎'))
         message.delete();
         break;
     // Fun
@@ -93,14 +171,21 @@ bot.on("message", function(message) {
       break;
     case "fact":
       var fakt = new Discord.RichEmbed()
-        .setTitle(":trophy: Random fact")
+        .setTitle("🏆 Random fact")
         .setDescription(fact[Math.floor(Math.random() * fact.length)])
         .setColor(0xD6B329)
         .setFooter(message.author.username, message.author.avatarURL)
       message.channel.sendEmbed(fakt);
       break;
+    case "help":
+      var help = new Discord.RichEmbed()
+        .setTitle("📢 Help")
+        .setDescription("Prefix for normal commands is `>`\nAll normal commands: `about` `say` `poll` `guide` `download` `shrug` `tableflip` `lenny` `unflip` ")
+        .setColor(0xD6B329)
+        .setFooter(message.author.username, message.author.avatarURL)
+      message.channel.sendEmbed(help);
+      break;
     default:
-      message.react("❌");
       break;
 
   }
