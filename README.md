@@ -7,7 +7,7 @@
 - Some process manager plugin on Linux or Windows
 
 ## Installation
-> Coming soon
+> [Installation guide | Wiki](https://github.com/ignissak/Quacker-Jack/wiki/Installation)
 
 ## Commands
-> Check out docs.
+> Coming soon.
