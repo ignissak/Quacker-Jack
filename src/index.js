@@ -190,7 +190,7 @@ bot.on("message", function(message) {
     case "help":
       var help = new Discord.RichEmbed()
         .setTitle("📢 Help")
-        .setDescription("Prefix for normal commands is `>`\nAll normal commands: `about` `say` `poll` `guide` `download` `fact` shrug` `tableflip` `lenny` `unflip` ")
+        .setDescription("Prefix for normal commands is `>`\nAll normal commands: `about` `say` `poll` `guide` `download` `fact` `shrug` `tableflip` `lenny` `unflip` ")
         .setColor(0xD6B329)
         .setFooter(message.author.username, message.author.avatarURL)
       message.channel.sendEmbed(help);
