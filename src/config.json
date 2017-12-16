@@ -1,7 +1,7 @@
 {
   "TOKEN": "YOUR_TOKEN",
   "PREFIX": ">",
-  "VERSION": "1.2.1",
+  "VERSION": "1.2.2",
   "SOURCECODE": "[GitHub](https://github.com/ignissak/Quacker-Jack/tree/master)",
   "INVITE": "[Click on me](https://discordapp.com/oauth2/authorize?client_id=376500571852767232&scope=bot&permissions=104197334)",
   "ownerID": "234700305831428106",

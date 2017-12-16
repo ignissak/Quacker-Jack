@@ -59,6 +59,7 @@ bot.on("message", function(message) {
 
 
   switch (args[0].toLowerCase()) {
+    // Bot utility
     case "about":
       var about = new Discord.RichEmbed()
         .setTitle("Quacker Jack")
@@ -86,7 +87,25 @@ bot.on("message", function(message) {
         .setColor(0x00AE86)
       message.channel.sendEmbed(server);
       break;
-      case "guide":
+    case "bot":
+      var uptime = Math.floor(bot.uptime / 864000000) + 'd : ' + (Math.floor(bot.uptime / 3600000) % 24) + 'h : ' + (Math.floor(bot.uptime / 60000) % 60) + 'm : ' + (Math.floor(bot.uptime / 1000) % 60) + 's';
+      var binfo = new Discord.RichEmbed()
+        .setAuthor("Bot information", bot.user.avatarURL)
+        .setTitle("\u200B")
+        .addField("Total users", bot.users.size, true)
+        .addField("Total guilds", bot.guilds.size, true)
+        .addField("Node.js module", "[Discord.js](https://discord.js.org/#/)", true)
+        .addField("Uptime", uptime, true)
+        .addField("Memory Usage", (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2) + 'MB', true)
+        .addField("Owner", "igniss.#4853", true)
+      //  .addField("Invite link", "[Click here](https://discordapp.com/oauth2/authorize?client_id=381106675437797387&scope=bot&permissions=9233)", true)
+        .setFooter(message.author.username, message.author.avatarURL)
+        .setTimestamp()
+        .setColor(0xD6B329)
+      message.channel.sendEmbed(binfo);
+      break;
+      // Skript
+    case "guide":
         if (!args[1]) {
           var guide = new Discord.RichEmbed()
             .setTitle("🔖 Guide")
@@ -190,7 +209,7 @@ bot.on("message", function(message) {
     case "help":
       var help = new Discord.RichEmbed()
         .setTitle("📢 Help")
-        .setDescription("Prefix for normal commands is `>`\nAll normal commands: `about` `say` `poll` `guide` `download` `fact` `shrug` `tableflip` `lenny` `unflip` ")
+        .setDescription("Prefix for normal commands is `>`\nAll normal commands: `about` `say` `bot` `poll` `guide` `download` `fact` `shrug` `tableflip` `lenny` `unflip` `emojilist`")
         .setColor(0xD6B329)
         .setFooter(message.author.username, message.author.avatarURL)
       message.channel.sendEmbed(help);
