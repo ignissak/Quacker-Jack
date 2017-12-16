@@ -22,7 +22,17 @@ var fact = [
   "In 1986, Ronald Reagan vetoed an anti-apartheid legislation enacted by the U.S. congress to impose sanctions against South Africa and stop apartheid.",
   "Migrating to another country increases the amount of dopamine in the brain, putting immigrants at higher risk for developing schizophrenia.",
   "In a study, people from Ohio cursed the most, as compared to every other state in the U.S.",
-  "Mississippi elected the first African American to serve in the U.S. Congress already in 1870."
+  "Mississippi elected the first African American to serve in the U.S. Congress already in 1870.",
+  "Quebec banned ads for toys and fast food aimed at children under 13, resulting in lowered childhood obesity rates.",
+  "Fibrodysplasia ossificans progressiva is a rare genetic disease which causes damaged soft tissue to regrow as bone.",
+  "In Northern Ireland, women earn 3.4% more than men on average.",
+  "Stan, from the Eminem song with the same name, was added to the Oxford English Dictionary, defining it as an overzealous or obsessive fan of a particular celebrity",
+  "At the current rate, by 2020, Bitcoin will consume more power than the world does today.",
+  "Today's human population is descended from twice as many women as men. About 80% of women reproduced, whereas only 40% of men did.",
+  "4.6 million Americans were severely behind on payments on student loans in 2017.",
+  "In 2008, the Municipality of Florence officially apologized for expelling Dante Alighieri 700 years earlier.",
+  "Corporatocracy is a term used to refer to an economic and political system controlled by corporate interests.",
+  "Communist leader Vladimir Lenin spoke English with a strong Irish accent because his tutor was an Irishman."
 ]
 
 var ball = [
@@ -180,7 +190,7 @@ bot.on("message", function(message) {
     case "help":
       var help = new Discord.RichEmbed()
         .setTitle("📢 Help")
-        .setDescription("Prefix for normal commands is `>`\nAll normal commands: `about` `say` `poll` `guide` `download` `shrug` `tableflip` `lenny` `unflip` ")
+        .setDescription("Prefix for normal commands is `>`\nAll normal commands: `about` `say` `poll` `guide` `download` `fact` shrug` `tableflip` `lenny` `unflip` ")
         .setColor(0xD6B329)
         .setFooter(message.author.username, message.author.avatarURL)
       message.channel.sendEmbed(help);
