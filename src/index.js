@@ -37,7 +37,10 @@ var fact = [
 
 var ball = [
   "Yes",
+  "It is decidedly so.",
   "No",
+  "My sources say no.",
+  "Ask again later.",
   "Quack, what did you say?"
 ]
 
